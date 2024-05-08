@@ -1,0 +1,19 @@
+{% extends 'User/userhometemplate.html' %}
+{% block body %}
+<form id="form1"  name="form1" method="post" action="/Myapp/qnageneration_post/">
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <th>Sl no</th>
+      <th>Question</th>
+      <th>Answer</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.question }}</td>
+      <td>{{ i.answer }}&nbsp;</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

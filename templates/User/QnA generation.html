@@ -1,0 +1,38 @@
+{% extends 'User/userhometemplate.html' %}
+{% block body %}
+<form action="/Myapp/qnageneration_post/" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+  <table class="table table-bordered">
+{#    <tr>#}
+{#      <td><input type="submit" name="button" id="button" value="Start recording" /></td>#}
+{#      <td><input type="submit" name="button2" id="button2" value="Stop" /></td>#}
+{#      <td><input type="submit" name="button3" id="button3" value="Pause" /></td>#}
+{#    </tr>#}
+    <tr>
+{#      <td>&nbsp;</td>#}
+      <td><textarea name="textarea" id="textarea" cols="45" rows="5" required class="form-control"></textarea></td>
+{#      <td>&nbsp;</td>#}
+    </tr>
+{#    <tr>#}
+{#      <td>&nbsp;</td>#}
+{#      <td>or</td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Choose file type</td>#}
+{#      <td><select name="select" id="select">#}
+{#      </select></td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Browse file</td>#}
+{#      <td><input type="file" name="fileField" id="fileField" /></td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+    <tr>
+{#      <td>&nbsp;</td>#}
+      <td><input type="submit" name="button" id="button" value="Upload" class="btn btn-success"/></td>
+{#      <td>&nbsp;</td>#}
+    </tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'admin/adminhomeindex.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/Myapp/viewreview_post/">
+{% csrf_token %}
+  <table class="px pull-left">
+    <tr>
+      <td>From date</td>
+      <td><input type="date" class="form-control" name="textfield" id="textfield" required/></td>
+      <td>To date</td>
+      <td><input type="date" class="form-control" name="textfield2" id="textfield2" required/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success"/></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th>Sl no</th>
+      <th>Date</th>
+      <th>Username</th>
+      <th>Rating</th>
+      <th>Review</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.date}}</td>
+      <td>{{ i.USER.username }}</td>
+      <td>&nbsp;{% if i.rating == ".5" %}
+        <img src="/static/star/half.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+
+        {% elif i.rating == "1" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         {% elif i.rating == "1.5" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/half.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+        {% elif i.rating == "2" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+        {% elif i.rating == "2.5" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/half.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+        {% elif i.rating == "3" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+        {% elif i.rating == "3.5" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/half.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+
+{% elif i.rating == "4" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+     {% elif i.rating == "4.5" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/half.jpg" width="30px" height="30px"/>
+
+       {% elif i.rating == "5" %}
+          <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+         <img src="/static/star/full.jpg" width="30px" height="30px"/>
+
+
+
+        {% else %}
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+         <img src="/static/star/empty.jpg" width="30px" height="30px"/>
+{% endif %}
+    </td>
+      <td>{{ i.review }}&nbsp;</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
